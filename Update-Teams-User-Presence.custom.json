@@ -1,0 +1,48 @@
+{
+  "name": "Update Teams User Presence",
+  "integrationType": "custom-rest-actions",
+  "actionType": "custom",
+  "config": {
+    "request": {
+      "requestUrlTemplate": "https://graph.microsoft.com/beta/users/${input.user}/presence/setUserPreferredPresence",
+      "requestType": "POST",
+      "headers": {
+        "authorization": "${authResponse.token_type} ${authResponse.access_token}",
+        "content-type": "application/json"
+      },
+      "requestTemplate": "{\n      \"availability\": \"${input.availability}\",\n      \"activity\": \"${input.activity}\"\n  }"
+    },
+    "response": {
+      "translationMap": {},
+      "translationMapDefaults": {},
+      "successTemplate": "${rawResult}"
+    }
+  },
+  "contract": {
+    "input": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string"
+          },
+          "availability": {
+            "type": "string"
+          },
+          "activity": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "successSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  "secure": false
+}
