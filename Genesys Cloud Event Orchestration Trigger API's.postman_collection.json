@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "581d461e-0a1a-4533-82d6-3662fca40082",
+		"name": "Genesys Cloud Event Orchestration Trigger API's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Genesys Cloud Client Credential Token Creation",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=client_credentials"
+				},
+				"url": {
+					"raw": "https://login.mypurecloud.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"mypurecloud",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProcessAutomation Trigger Creation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"topicName\":\"v2.detail.events.conversation.{id}.user.start\", \n\"name\": \"Agent joins conversation\",\n\"target\":{\n    \"id\": \"my-workflow-id\",\n    \"type\": \"Workflow\" },\n\"matchCriteria\": [],\n\"enabled\": true }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mypurecloud.com/platform/api/v2/processautomation/triggers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mypurecloud",
+						"com"
+					],
+					"path": [
+						"platform",
+						"api",
+						"v2",
+						"processautomation",
+						"triggers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All ProcessAutomation Triggers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.mypurecloud.com/platform/api/v2/processautomation/triggers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mypurecloud",
+						"com"
+					],
+					"path": [
+						"platform",
+						"api",
+						"v2",
+						"processautomation",
+						"triggers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit a ProcessAutomation Trigger",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mypurecloud.com/api/v2/processautomation/triggers/{id}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mypurecloud",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"processautomation",
+						"triggers",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a ProcessAutomation Trigger",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.mypurecloud.com/api/v2/processautomation/triggers/{id}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mypurecloud",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"processautomation",
+						"triggers",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
