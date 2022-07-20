@@ -196,11 +196,7 @@ To enable a Genesys Cloud data action to make public API requests on behalf of y
 
 2. Enter a name for the OAuth client and select **Client Credentials** as the grant type. Click the **Roles** tab and assign the role for the OAuth client.
 
-   :::primary
-   **Note:** Select a custom role that includes the **Messaging** > **Sms** > **Send** permission. No default role includes this permission. For information on how to create a custom role, see [Roles and permissions overview](https://help.mypurecloud.com/?p=24360 "Opens the Roles and Permission overview article") in the Genesys Cloud Resource Center.
-   :::
-
-   ![Select the custom role and the grant type](images/2BOAuthClientSetup.png "Select the custom role and the grant type")
+     ![Select the custom role and the grant type](images/2BOAuthClientSetup.png "Select the custom role and the grant type")
 
 3. Click **Save**. Copy the client ID and the client secret values for later use.
 
@@ -338,10 +334,6 @@ After you have created the workflows, create the triggers that call them. You ne
 
 5. Click the **Authorization** tab. In the **Username** field, paste the client ID from the [OAuth client that you created](#create-an-oauth-client-for-use-with-the-genesys-cloud-data-action-integration "Goes to the Create an OAuth client for use with the Genesys Cloud data action integration section"). In the **Password** field, paste the client secret from the same OAuth client. Click **Send**.
 
-   :::primary
-   **Note:** For a list of the API prefixes for the Genesys Cloud Public API, [click-here](https://developer.genesys.cloud/platform/api/ "Open Genesys Cloud Developer Center")
-   :::
-
   ![Create the access token](images/CreateBearerToken.png "Create the access token")
 
 5. From the body of the response, copy the **access token**.
@@ -354,11 +346,7 @@ After you have created the workflows, create the triggers that call them. You ne
 
 7. Click the **Body** tab. Be sure to change your API domain to match the AWS region your Genesys Cloud organization is hosted.  Replace **my-workflow-id** with the id of the **GC User Set MS Teams to DoNotDisturb** Architect workflow that you created earlier in this blueprint. Click **Send**.
 
-   :::primary
-   **Note:** For a list of the API prefixes for the Genesys Cloud Public API, [click-here](https://developer.genesys.cloud/platform/api/ "Open Genesys Cloud Developer Center")
-   :::
-
-    ![Create the Conversation Start trigger](images/CreateTrigger1.png "Create the Conversation Start trigger")
+     ![Create the Conversation Start trigger](images/CreateTrigger1.png "Create the Conversation Start trigger")
 
 8. To create the second trigger, repeat these steps but change the topicName to `v2.detail.events.conversation.{id}.user.end`. Replace **my-workflow-id** with the ID of the GC User Set MS Teams to Available Architect workflow that you created earlier in this blueprint. Click **Send**.
 
@@ -366,9 +354,10 @@ After you have created the workflows, create the triggers that call them. You ne
 
 ## Additional resources
 
-* [Microsoft Graph presence:setUserPreferredPresence API](https://docs.microsoft.com/en-us/graph/api/presence-setuserpreferredpresence?view=graph-rest-beta&tabs=http "Opens the presence: setUserPreferredPresence page") in the Microsoft Graph API Reference
-* [Supported Genesys Cloud notification triggers ("Available topics")](https://developer.genesys.cloud/notificationsalerts/notifications/available-topics "Opens the Available topics page")
-* [Microsoft Azure Enterprise portal](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/ea-portal-get-started "Goes to the Get started with the Azure Enterprise portal site") in the Microsoft documentation
+* [Genesys Cloud notification triggers ("Available topics")](https://developer.genesys.cloud/notificationsalerts/notifications/available-topics "Opens the Available topics page")
+* [Prefixes for AWS regions](https://developer.genesys.cloud/platform/api/ "Open the Overview page in the API section of the Genesys Cloud Developer Center")
 * [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/ "Goes to the Azure Active Directory page") in the Microsoft documentation
-* [Postman API Platform](https://www.postman.com/ "Goes to the Postman API Platform page") in the Postman documentation 
+* [Microsoft Azure Enterprise portal](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/ea-portal-get-started "Goes to the Get started with the Azure Enterprise portal site") in the Microsoft documentation
+* [Microsoft Graph presence:setUserPreferredPresence API](https://docs.microsoft.com/en-us/graph/api/presence-setuserpreferredpresence?view=graph-rest-beta&tabs=http "Opens the presence: setUserPreferredPresence page") in the Microsoft Graph API Reference
+* [Postman API Platform](https://www.postman.com/ "Goes to the Postman API Platform page") in the Postman documentation
 * [update-ms-teams-presence-from-inbound-interaction repo](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint "Opens the GitHub repo")
