@@ -370,5 +370,5 @@ After you have created the workflows, create the triggers that call them. You ne
 * [Supported Genesys Cloud notification triggers ("Available topics")](https://developer.genesys.cloud/notificationsalerts/notifications/available-topics "Opens the Available topics page")
 * [Microsoft Azure Enterprise portal](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/ea-portal-get-started "Goes to the Get started with the Azure Enterprise portal site") in the Microsoft documentation
 * [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/ "Goes to the Azure Active Directory page") in the Microsoft documentation
-* [Postman](https://www.postman.com/ "Goes to the Postman API Platform site")
+* [Postman API Platform](https://www.postman.com/ "Goes to the Postman API Platform page") in the Postman documentation 
 * [update-ms-teams-presence-from-inbound-interaction repo](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint "Opens the GitHub repo")
