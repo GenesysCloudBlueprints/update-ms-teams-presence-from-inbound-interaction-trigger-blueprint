@@ -7,7 +7,7 @@ This Genesys Cloud Developer Blueprint explains how to set up Genesys Cloud and 
 
 When an Architect workflow receives an inbound interaction, a Microsoft Graph API call is sent to the Microsoft Teams user that is associated with the Genesys Cloud agent who is assigned to the interaction. The Microsoft Teams user's presence is set to "Do Not Disturb" when the voice interaction begins. When the interaction ends, the Microsoft Teams user's presence is set to "Available."
 
-![Microsoft Teams agent view](images/msteams-workflow.png "Microsoft Teams presence update from an agent's point of view")
+![Microsoft Teams agent view](blueprint/images/msteams-workflow.png "Microsoft Teams presence update from an agent's point of view")
 
 The following shows the end-to-end agent experience that this solution enables.
 
