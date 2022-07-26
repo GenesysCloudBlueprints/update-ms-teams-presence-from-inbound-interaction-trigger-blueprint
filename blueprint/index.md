@@ -4,7 +4,7 @@ title: Update the presence of a Microsoft Teams user based upon an inbound inter
 author: yuri.yeti
 indextype: blueprint
 icon: blueprint
-image: images/6COpenScriptDropdown.png
+image: images/OpenScriptDropdown.png
 category: 6
 summary: |
   This Genesys Cloud Developer Blueprint explains how to set up Genesys Cloud and Microsoft Azure Active Directory to update a Genesys Cloud agent's presence in Microsoft Teams at the start and end of an inbound Genesys Cloud voice interaction.
