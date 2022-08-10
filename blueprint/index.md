@@ -1,6 +1,5 @@
 ---
-ispreview: true
-title: Update the presence of a Microsoft Teams user based upon an inbound interaction
+title: Beta: Update the presence of a Microsoft Teams user based upon an inbound interaction
 author: yuri.yeti
 indextype: blueprint
 icon: blueprint
@@ -16,7 +15,7 @@ summary: |
 
 The following illustration shows this solution from an agent’s point of view.
 
-![Microsoft Teams agent view](images/msteams-workflow.png "Microsoft Teams presence update from an agent's point of view")
+![Microsoft Teams presence update from an agent's point of view](images/msteams-workflow.png "Microsoft Teams presence update from an agent's point of view")
 
 The following shows the end-to-end agent experience that this solution enables.
 
@@ -48,13 +47,13 @@ To trigger Microsoft Teams presence updates from Genesys Cloud, you use several 
 
 * A Genesys Cloud 3 license. For more information, see [Genesys Cloud Pricing](https://www.genesys.com/pricing "Opens the pricing article").
 * The Master Admin role in Genesys Cloud. For more information, see [Roles and permissions overview](https://help.mypurecloud.com/?p=24360 "Opens the Roles and permissions overview article") in the Genesys Cloud Resource Center.
-* The Microsoft Azure Active Directory SCIM integration for Microsoft Teams must be implemented in your Genesys Cloud organization. For more information, see [Configure the Microsoft Teams integration](https://help.mypurecloud.com/?p=222880) in the Genesys Cloud Resource Center.
-* Event Orchestration must be activated for your Genesys Cloud organization.
+* The Microsoft Azure Active Directory SCIM integration for Microsoft Teams must be implemented in your Genesys Cloud organization. For more information, see [Configure the Microsoft Teams integration](https://help.mypurecloud.com/?p=222880 "Opens the Configure the Microsoft Teams integration article") in the Genesys Cloud Resource Center.
+* Event orchestration must be activated for your Genesys Cloud organization.
 
 ### Microsoft account
 
 * A Microsoft account with an Azure Enterprise Agreement (Azure EA) is required. Individual Azure accounts do not support the OAuth client with the client credentials grant type that is required for this solution.
-* An Azure Active Directory (Azure AD) account with admininstrator-level permissions to set up authorization and grant permissions for Genesys Cloud
+* An Azure Active Directory (Azure AD) account with administrator-level permissions to set up authorization and grant permissions for Genesys Cloud
 * Microsoft Teams license for each agent
 
 ## Configure the Azure custom app
@@ -110,9 +109,9 @@ To enable the Genesys Cloud instance to authenticate, read, and write presence i
 
     ![Confirm Grant Admin Consent](images/confirmAdminConsent.png "Confirm Grant Admin Consent")
 
-13. Verify that the admin consent is granted.
+13. Verify that admin consent is granted.
 
-    ![Verify that the admin consent is granted](images/adminConsentGranted.png "Verify that the admin consent is granted")
+    ![Verify that admin consent is granted](images/adminConsentGranted.png "Verify that admin consent is granted")
 
 ## Configure Genesys Cloud
 
@@ -120,25 +119,25 @@ To enable the Genesys Cloud instance to authenticate, read, and write presence i
 
 To enable communication from Genesys Cloud to Microsoft Azure and Microsoft Teams, add a web services data actions integration:
 
-1. In Genesys Cloud, navigate to **Admin** > **Integrations** and install the **Web Services Data Actions** integration from Genesys Cloud. For more information, see [About the data actions integrations](https://help.mypurecloud.com/?p=209478 "Opens the data actions overview article") in the Genesys Cloud Resource Center.
+1. In Genesys Cloud, navigate to **Admin** > **Integrations** and install the **Web Services Data Actions** integration from Genesys Cloud. For more information, see [About the data actions integrations](https://help.mypurecloud.com/?p=209478 "Opens the About data actions integrations article") in the Genesys Cloud Resource Center.
 
    ![Install the Web Services Data Actions integration](images/1AWebServicesDataActionInstall.png "Install the Web Services Data Actions integration")
 
-2. Rename the web services data action and provide a short description.
+2. Rename the integration and provide a short description.
 
    ![Rename the data action](images/1BRenameWebServicesDataAction.png "Rename the data action")
 
 3. Click **Configuration** > **Credentials** and then click **Configure**.
 
-   ![Configure integration credentials](images/1CConfigurationCredentials.png "Click Configure")
+   ![Click Configure](images/1CConfigurationCredentials.png "Click Configure")
 
 4. From the **Credential Type** list, select **User Defined (OAuth)** and specify the following options:
 
-* **client_id** Use the application (client) ID from your Azure custom app.
-* **client_secret** Use the client secret from your Azure custom app.
-* **tenant_id** Use the directory (tenant) ID from your Azure custom app
-* **scope**: Use https://graph.microsoft.com/.default.
-* **grant_type**: Select client_credentials.
+  * **client_id** Use the application (client) ID from your Azure custom app.
+  * **client_secret** Use the client secret from your Azure custom app.
+  * **tenant_id** Use the directory (tenant) ID from your Azure custom app
+  * **scope**: Use https://graph.microsoft.com/.default.
+  * **grant_type**: Select client_credentials.
 
    ![Configure integration credentials](images/1DFieldsandValues.png "Configure integration credentials")
 
@@ -156,7 +155,7 @@ When you add a web services data actions integration in your organization, Genes
 
 2. Go to the bottom of the Custom Auth data action page. To change the status of the data action from **Published** to **Draft**, click **Viewing**.
 
-3. From the [update-ms-teams-presence-from-inbound-interaction](https://github.com/jasonwolfg/update-ms-teams-presence-from-inbound-interaction "Opens the GitHub repo") GitHub repository, download the Office-365-Auth.customAuth.json file.
+3. From the [update-ms-teams-presence-from-inbound-interaction](https://github.com/jasonwolfg/update-ms-teams-presence-from-inbound-interaction) GitHub repository, download the Office-365-Auth.customAuth.json file.
 4. In Genesys Cloud, click **Import** and browse to select the downloaded file.
 
     ![Import the custom authentication data action file](images/1FOpenCustomAuthDataAction.png "Import the custom authentication data action file")
@@ -212,7 +211,7 @@ To update a user's presence in Microsoft Teams, get the Microsoft Teams userId t
 
 1. Navigate to **Admin** > **Integrations** > **Integrations** and install the **Genesys Cloud Data Actions** integration. For more information, see [About the data actions integrations](https://help.mypurecloud.com/?p=209478 "Opens the About the data actions integrations article") in the Genesys Cloud Resource Center.
 
-   ![Genesys Cloud Data Actions integration](images/3AGenesysCloudDataActionInstall.png "Install Genesys Cloud Data Actions integration")
+   ![Genesys Cloud Data Actions integration](images/3AGenesysCloudDataActionInstall.png "Genesys Cloud Data Actions integration")
 
 2. Enter a name for the Genesys Cloud data action.
 
@@ -224,23 +223,23 @@ To update a user's presence in Microsoft Teams, get the Microsoft Teams userId t
 
 4. Enter the client ID and client secret of the SCIM OAuth client that you used with the [Active Directory Microsoft Teams SCIM integration](#genesys-cloud-account "Goes to the Genesys Cloud account section"). Click **OK** and save the data action.
 
-   ![Add OAuth client credentials](images/3DOAuthClientIDandSecret.png "Enter the OAuth client ID and secret")
+   ![Add OAuth client credentials](images/3DOAuthClientIDandSecret.png "Add OAuth client credentials")
 
 5. Navigate to the main Integrations page and set the Get MS Teams User ID data action integration to **Active**.
 
-   ![Set the Get MS Teams User ID data integrations to active](images/3ESetToActive.png "Set the Get MS Teams User ID data action integration to active")
+   ![Set the Get MS Teams User ID data integration to active](images/3ESetToActive.png "Set the Get MS Teams User ID data action integration to active")
 
 ### Import the supporting data actions
 
 To enable both the Genesys Cloud Public API call to get the Microsoft Teams userId and the Microsoft Graph API call to update that Teams user's presence, you must import two more data actions.
 * [Import the Find Teams User ID Action](#import-the-find-teams-user-id-data-action "Goes to the Import the Find Teams User ID data action section")
-* [Import the Update Teams User Presence Action](#import-the-update-teams-user-presence-action "Goes to the Import the Update Teams User Presence Action section")
+* [Import the Update Teams User Presence Action](#import-the-update-teams-user-presence-action "Goes to the Import the Update Teams User Presence data action section")
 
 ### Import the Find Teams User ID data action
 
 The Find the Teams User ID data action uses the authenticated token that is supplied by other data actions to get the Microsoft Teams User ID from the Genesys Cloud Public API.
 
-1. From the [update-ms-teams-presence-from-inbound-interaction repo](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint "Opens the GitHub repo") GitHub repository, download the Find-Teams-User-Id.custom.json file.
+1. From the [update-ms-teams-presence-from-inbound-interaction repo](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint) GitHub repository, download the Find-Teams-User-Id.custom.json file.
 
 2. In Genesys Cloud, navigate to **Integrations** > **Actions** and click **Import**.
 
@@ -254,7 +253,7 @@ The Find the Teams User ID data action uses the authenticated token that is supp
 
 The Update Teams User Presence data action calls the Microsoft Graph API to update the user's presence in Microsoft Teams.
 
-1. From the [update-ms-teams-presence-from-inbound-interaction repo](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint "Opens the GitHub repo") GitHub repository, download the Update-Teams-User-Presence.custom.json file.
+1. From the [update-ms-teams-presence-from-inbound-interaction repo](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint) GitHub repository, download the Update-Teams-User-Presence.custom.json file.
 2. Navigate to **Admin** > **Integrations** > **Actions** and click **Import**.
 
    ![Import a data action](images/4AImportDataActions.png "Import a data action")
@@ -267,10 +266,10 @@ The Update Teams User Presence data action calls the Microsoft Graph API to upda
 
 This solution includes two Architect workflows that use the data actions you just created. These workflows update the user's presence in Microsoft Teams:
 
-* The **GC User Set MS Teams to DoNotDisturb_v8-0.i3WorkFlow** workflow is triggered when an agent joins an inbound ACD voice interaction. This workflow sets the user's presence in Microsoft Teams to Do Not Disturb.
-* The **GC User Set MS Teams to Available_v4-0.i3WorkFlow** workflow is triggered when the inbound ACD interaction ends. This workflow sets the user's presence in Microsoft Teams to Available.
+* The **GC User Set MS Teams to DoNotDisturb_v8-0.i3WorkFlow** workflow is triggered when an agent joins an inbound ACD voice interaction. This workflow sets the user's presence in Microsoft Teams to `Do Not Disturb`.
+* The **GC User Set MS Teams to Available_v4-0.i3WorkFlow** workflow is triggered when the inbound ACD interaction ends. This workflow sets the user's presence in Microsoft Teams to `Available`.
 
-These workflows will be called by the Event Orchestration triggers, which you will create in the next section. When triggered, these Architect workflows will call the Find Teams User ID data action, set the Microsoft Teams User Id variable, and then update the user's presence in Microsoft Teams via the Microsoft Graph API.
+These workflows will be called by the event orchestration triggers, which you will create in the next section. When triggered, these Architect workflows will call the Find Teams User ID data action, set the Microsoft Teams User Id variable, and then update the user's presence in Microsoft Teams via the Microsoft Graph API.
 
 First, import these workflows to your Genesys Cloud organization.
 
@@ -288,15 +287,15 @@ First, import these workflows to your Genesys Cloud organization.
 
    ![Import the workflow](images/ImportWorkflow1.png "Import the workflow")
 
-5. Select the downloaded **GC User Set MS Teams to DoNotDisturb_v8-0.i3WorkFlow** file.  Click **Import**.
+5. Select the downloaded **GC User Set MS Teams to DoNotDisturb_v8-0.i3WorkFlow** file. Click **Import**.
 
    ![Import your workflow file](images/SelectWorkflow1ImportFile.png "Import your workflow file")
 
 6. Review your workflow. Copy the workflow ID from the URL and save it. You will need it to create the event orchestration trigger. After you have reviewed your workflow, click **Save** and then click **Publish**.
 
-   ![Save your workflow](images/ImportedWorkflow1.png "Save Your workflow")
+   ![Save your workflow](images/ImportedWorkflow1.png "Save your workflow")
 
-7. Download the **GC User Set MS Teams to Available_v4-0.i3WorkFlow** file from the [update-ms-teams-presence-from-inbound-interaction repo](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint) GitHub repository.  
+7. Download the **GC User Set MS Teams to Available_v4-0.i3WorkFlow** file from the [update-ms-teams-presence-from-inbound-interaction](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint) GitHub repository.  
 
 8. In Genesys Cloud, navigate to **Admin** > **Architect** > **Flows:Workflow** and click **Add**.
 
@@ -320,11 +319,11 @@ First, import these workflows to your Genesys Cloud organization.
 
 ## Create the event orchestration triggers
 
-After you have created the workflows, create the triggers that call them. You need Event Orchestration activated in your Genesys Cloud organization and you need Postman running on your machine.
+After you have created the workflows, create the triggers that call them. You need event orchestration activated in your Genesys Cloud organization and you need Postman running on your machine.
 
 ### Create the first trigger
 
-1. From the [update-ms-teams-presence-from-inbound-interaction repo](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint) GitHub repository, download the Genesys Cloud Event Orchestration Trigger API's.postman_collection.json file.
+1. From the [update-ms-teams-presence-from-inbound-interaction](https://github.com/GenesysCloudBlueprints/update-ms-teams-presence-from-inbound-interaction-trigger-blueprint) GitHub repository, download the Genesys Cloud Event Orchestration Trigger API's.postman_collection.json file.
 
 2. In Postman, click **Import**
 
@@ -348,7 +347,7 @@ After you have created the workflows, create the triggers that call them. You ne
 
      ![Paste the access token](images/PasteBearerToken.png "Paste the access token")
 
-7. Click the **Body** tab. Be sure to change your API domain to match the AWS region your Genesys Cloud organization is hosted.  Replace **my-workflow-id** with the id of the **GC User Set MS Teams to DoNotDisturb** Architect workflow that you created earlier in this blueprint. Click **Send**.
+7. Click the **Body** tab. Be sure to change your API domain to match the AWS region your Genesys Cloud organization is hosted. Replace **my-workflow-id** with the id of the **GC User Set MS Teams to DoNotDisturb** Architect workflow that you created earlier in this blueprint. Click **Send**.
 
      ![Create the Conversation Start trigger](images/CreateTrigger1.png "Create the Conversation Start trigger")
 
