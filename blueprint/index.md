@@ -1,5 +1,5 @@
 ---
-title: "Beta: Update the presence of a Microsoft Teams user based upon an inbound interaction"
+title: "Update the presence of a Microsoft Teams user based upon an inbound interaction"
 author: yuri.yeti
 indextype: blueprint
 icon: blueprint
@@ -45,7 +45,7 @@ To trigger Microsoft Teams presence updates from Genesys Cloud, you use several 
 
 ### Genesys Cloud account
 
-* A Genesys Cloud 3 license. For more information, see [Genesys Cloud Pricing](https://www.genesys.com/pricing "Opens the pricing article").
+* A Genesys Cloud 2 license. For more information, see [Genesys Cloud Pricing](https://www.genesys.com/pricing "Opens the pricing article").
 * The Master Admin role in Genesys Cloud. For more information, see [Roles and permissions overview](https://help.mypurecloud.com/?p=24360 "Opens the Roles and permissions overview article") in the Genesys Cloud Resource Center.
 * The Microsoft Azure Active Directory SCIM integration for Microsoft Teams must be implemented in your Genesys Cloud organization. For more information, see [Configure the Microsoft Teams integration](https://help.mypurecloud.com/?p=222880 "Opens the Configure the Microsoft Teams integration article") in the Genesys Cloud Resource Center.
 * Event orchestration must be activated for your Genesys Cloud organization.
